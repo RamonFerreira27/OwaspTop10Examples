@@ -65,21 +65,21 @@ namespace Blog
             // A10 - Logging & Auditing - adding log4net here to properly log out information.
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddLog4Net();
-            app.UseDeveloperExceptionPage();
+            //app.UseDeveloperExceptionPage();
 
-            // A6 - incorrect
-            app.UseDeveloperExceptionPage();
+            //A6 - incorrect
+            //app.UseDeveloperExceptionPage();
 
             // A6 - correct
-            //if (env.IsDevelopment())
-            //{
-            //    app.UseDeveloperExceptionPage();
-            //    app.UseBrowserLink();
-            //}
-            //else
-            //{
-            //    app.UseExceptionHandler("/error");
-            //}
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+                app.UseBrowserLink();
+            }
+            else
+            {
+                app.UseExceptionHandler("/error");
+            }
 
             app.UseStaticFiles();
 

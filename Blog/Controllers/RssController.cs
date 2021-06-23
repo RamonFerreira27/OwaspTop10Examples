@@ -64,7 +64,7 @@ namespace Blog.Controllers
                 "<!ENTITY xxe SYSTEM \"file:///C:/users/bdinger/documents/test.txt\" >]><foo>&xxe;</foo>";
 
             XmlTextReader xmlReader = new XmlTextReader(new StringReader(xml));
-            xmlReader.DtdProcessing = DtdProcessing.Parse;
+            xmlReader.DtdProcessing = DtdProcessing.Prohibit;
             var result = string.Empty;
             while (xmlReader.Read())
             {
